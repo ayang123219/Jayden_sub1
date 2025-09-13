@@ -190,38 +190,45 @@
                         <!-- 1. 图片展示区域：可放1张总览图或多张分指标图，支持响应式 -->
                         <div class="bg-white rounded-lg shadow-md p-4 mb-4">
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <!-- 第一张图：VSWR测试结果（示例，可根据实际图片数量增减） -->
+                                 <!-- 第一张图：VSWR测试结果（单图完整显示） -->
                                 <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                                    <img src="file/S11.jpg"  
-                                         alt="VSWR测试结果图" 
-                                         class="w-full h-48 object-cover"  
-                                         loading="lazy">  <!-- 懒加载，提升页面加载速度 -->
+                                    <!-- 关键改：object-fit: contain + bg-gray-100 + h-auto（自适应高度） -->
+                                    <div class="bg-gray-100 p-2"> <!-- 背景+内边距，避免图片贴边 -->
+                                        <img src="file/S11.jpg"  
+                                             alt="VSWR测试结果图" 
+                                             class="w-full h-auto object-contain"  <!-- h-auto自适应，contain完整显示 -->
+                                             loading="lazy">
+                                    </div>
                                     <div class="p-3 text-center text-sm font-medium text-gray-700">
                                         回波损耗测试结果
                                     </div>
                                 </div>
                     
-                                <!-- 第二张图：效率测试结果 -->
+                                <!-- 第二张图：2张效率图（纵向排列，避免叠加） -->
                                 <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                                    <img src="file/effi1.jpg"  
-                                         alt="天线效率测试结果图" 
-                                         class="w-full h-48 object-cover"
-                                         loading="lazy">
-                                    <img src="file/effi2.jpg"  
-                                         alt="天线效率测试结果图" 
-                                         class="w-full h-48 object-cover"
-                                         loading="lazy">
+                                    <div class="bg-gray-100 p-2 space-y-2"> <!-- space-y-2给两张图加间距 -->
+                                        <img src="file/effi1.jpg"  
+                                             alt="天线效率测试结果图1" 
+                                             class="w-full h-auto object-contain"
+                                             loading="lazy">
+                                        <img src="file/effi2.jpg"  
+                                             alt="天线效率测试结果图2" 
+                                             class="w-full h-auto object-contain"
+                                             loading="lazy">
+                                    </div>
                                     <div class="p-3 text-center text-sm font-medium text-gray-700">
                                         天线效率测试结果
                                     </div>
                                 </div>
                     
-                                <!-- 第三张图：隔离度测试结果 -->
+                                <!-- 第三张图：隔离度测试结果（同第一张图逻辑） -->
                                 <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                                    <img src="file/isolation.jpg"  
-                                         alt="天线隔离度测试结果图" 
-                                         class="w-full h-48 object-cover"
-                                         loading="lazy">
+                                    <div class="bg-gray-100 p-2">
+                                        <img src="file/isolation.jpg"  
+                                             alt="天线隔离度测试结果图" 
+                                             class="w-full h-auto object-contain"
+                                             loading="lazy">
+                                    </div>
                                     <div class="p-3 text-center text-sm font-medium text-gray-700">
                                         天线隔离度测试结果
                                     </div>
@@ -229,13 +236,13 @@
                             </div>
                         </div>
 
-    <!-- 2. 底部文字解释区域：补充图片未体现的关键信息 -->
-    <div class="bg-gray-50 rounded-lg p-4 text-gray-700 text-sm leading-relaxed">
-        <p class="mb-2"><strong class="text-gray-800">测试说明：</strong>上述图片分别展示了车载5G MIMO天线在VSWR（电压驻波比）、辐射效率、天线间隔离度三个核心指标的实测数据图表，测试环境为标准微波暗室，测试设备采用Agilent N5247A矢量网络分析仪。</p>
-        <p class="mb-2"><strong class="text-gray-800">关键结论：</strong>1. VSWR实测值为2.2-2.8，低于设计目标（&lt;3），信号传输反射损耗小；2. 天线效率达45-58%，高于目标值（&gt;40%），能量辐射能力优异；3. 隔离度为15-22dB，远优于目标（&gt;10dB），有效避免多天线间信号干扰。</p>
-        <p><strong class="text-gray-800">备注：</strong>所有测试数据均经过3次重复验证，误差控制在±0.5dB内，结果具备可靠性，可支撑后续产品化落地。</p>
-    </div>
-</div>
+                        <!-- 2. 底部文字解释区域：补充图片未体现的关键信息 -->
+                        <div class="bg-gray-50 rounded-lg p-4 text-gray-700 text-sm leading-relaxed">
+                            <p class="mb-2"><strong class="text-gray-800">测试说明：</strong>上述图片分别展示了车载5G MIMO天线在VSWR（电压驻波比）、辐射效率、天线间隔离度三个核心指标的实测数据图表，测试环境为标准微波暗室，测试设备采用Agilent N5247A矢量网络分析仪。</p>
+                            <p class="mb-2"><strong class="text-gray-800">关键结论：</strong>1. VSWR实测值为2.2-2.8，低于设计目标（&lt;3），信号传输反射损耗小；2. 天线效率达45-58%，高于目标值（&gt;40%），能量辐射能力优异；3. 隔离度为15-22dB，远优于目标（&gt;10dB），有效避免多天线间信号干扰。</p>
+                            <p><strong class="text-gray-800">备注：</strong>所有测试数据均经过3次重复验证，误差控制在±0.5dB内，结果具备可靠性，可支撑后续产品化落地。</p>
+                        </div>
+                    </div>
                     
                     <div>
                         <h3 id="results" class="text-xl font-semibold text-gray-800 mb-3">项目成果</h3>
