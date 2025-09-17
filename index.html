@@ -9,7 +9,7 @@
     <!-- 引入Font Awesome图标 -->
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
-    <!-- 配置Tailwind自定义颜色和字体（与主页面一致） -->
+    <!-- 配置Tailwind自定义颜色和字体 -->
     <script>
         tailwind.config = {
             theme: {
@@ -49,24 +49,36 @@
                 border: 1px solid #e2e8f0;
                 border-radius: 8px;
                 overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .img-container:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
         }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
-    <!-- 顶部导航栏（与主页面一致） -->
+    <!-- 顶部导航栏 -->
     <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="githubIndex.html" class="text-primary font-bold text-xl tracking-tight">程锦阳 | 微波天线技术</a>
             
             <!-- 桌面端导航链接 -->
             <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-gray-600 hover:text-primary transition-colors">关于项目</a>
-                <a href="#target" class="text-gray-600 hover:text-primary transition-colors">设计目标</a>
-                <a href="#research_method" class="text-gray-600 hover:text-primary transition-colors">技术方案</a>
-                <a href="#test_results" class="text-gray-600 hover:text-primary transition-colors">测试结果</a>
-                <a href="#results" class="text-gray-600 hover:text-primary transition-colors">项目成果</a>
+                <a href="#overview" class="text-gray-600 hover:text-primary transition-colors">项目概述</a>
+                <a href="#technical-targets" class="text-gray-600 hover:text-primary transition-colors">技术目标</a>
+                <a href="#technical-solution" class="text-gray-600 hover:text-primary transition-colors">技术方案</a>
+                <a href="#test-results" class="text-gray-600 hover:text-primary transition-colors">测试结果</a>
+                <a href="#project-achievements" class="text-gray-600 hover:text-primary transition-colors">项目成果</a>
             </div>
             
             <!-- 移动端菜单按钮 -->
@@ -78,11 +90,11 @@
         <!-- 移动端导航菜单 -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
             <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
-                <a href="#about" class="text-gray-600 hover:text-primary py-2 transition-colors">关于项目</a>
-                <a href="#target" class="text-gray-600 hover:text-primary py-2 transition-colors">设计目标</a>
-                <a href="#research_method" class="text-gray-600 hover:text-primary py-2 transition-colors">技术方案</a>
-                <a href="#test_results" class="text-gray-600 hover:text-primary py-2 transition-colors">测试结果</a>
-                <a href="#results" class="text-gray-600 hover:text-primary py-2 transition-colors">项目成果</a>
+                <a href="#overview" class="text-gray-600 hover:text-primary py-2 transition-colors">项目概述</a>
+                <a href="#technical-targets" class="text-gray-600 hover:text-primary py-2 transition-colors">技术目标</a>
+                <a href="#technical-solution" class="text-gray-600 hover:text-primary py-2 transition-colors">技术方案</a>
+                <a href="#test-results" class="text-gray-600 hover:text-primary py-2 transition-colors">测试结果</a>
+                <a href="#project-achievements" class="text-gray-600 hover:text-primary py-2 transition-colors">项目成果</a>
             </div>
         </div>
     </nav>
@@ -91,26 +103,29 @@
     <main class="container mx-auto px-4 pt-24 pb-16">
         <!-- 项目标题与基本信息 -->
         <section class="mb-12 section-fade">
-            <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover">
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
                     <div>
                         <h1 class="text-3xl font-bold text-gray-800 mb-2">紧凑型低剖面车载5G MIMO天线研发</h1>
-                        <p class="text-gray-500 flex items-center">
-                            <i class="fa fa-calendar-o mr-2"></i> 2023.10 - 2024.8 
-                            <span class="mx-3">|</span>
-                            <i class="fa fa-briefcase mr-2"></i> 企业横向项目
+                        <p class="text-gray-500 flex items-center flex-wrap gap-x-4 gap-y-2">
+                            <span><i class="fa fa-calendar-o mr-2"></i> 2023.10 - 2024.8</span>
+                            <span><i class="fa fa-briefcase mr-2"></i> 企业横向项目</span>
                         </p>
                     </div>
-                    <a href="https://ayang123219.github.io/aeayang.github.io/" class="mt-4 md:mt-0 inline-flex items-center text-primary hover:text-primary/80 transition-colors">
-                        <i class="fa fa-arrow-left mr-2"></i> 返回技术简历
+                    <a href="githubIndex.html#research" class="mt-4 md:mt-0 inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                        <i class="fa fa-arrow-left mr-2"></i> 返回研究经历
                     </a>
                 </div>
                 
-                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                    <h3 id="about" class="font-semibold text-gray-800 mb-2">项目概述</h3>
-                    <p class="text-gray-700">
+                <!-- 项目概述 -->
+                <div id="overview" class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                    <h2 class="font-semibold text-xl text-gray-800 mb-4 flex items-center">
+                        <i class="fa fa-info-circle text-primary mr-2"></i>项目概述
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">
                         本项目旨在开发一款适用于车载环境的紧凑型低剖面5G MIMO天线系统，解决车辆高速移动场景下的通信质量问题。
                         项目采用创新的天线结构设计，在有限空间内实现了多频段覆盖和高隔离度，满足现代车载通信的严苛要求。
+                        通过优化天线布局与馈电方式，最终产品在保持高性能的同时，体积较同类产品减少30%，为车载通信系统集成提供了更大灵活性。
                     </p>
                 </div>
             </div>
@@ -118,134 +133,210 @@
         
         <!-- 项目详情 -->
         <section class="mb-12 section-fade">
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">
-                    <i class="fa fa-list-alt text-primary mr-2"></i>项目详情
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200 flex items-center">
+                    <i class="fa fa-list-alt text-primary mr-2"></i>项目详细
                 </h2>
                 
-                <div class="space-y-6 text-gray-700">
-                    <div>
-                        <h3 id="target" class="text-xl font-semibold text-gray-800 mb-3">设计目标</h3>
-                        <ul class="space-y-2 pl-6">
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                                <span>工作频段：主天线、副天线覆盖700-960MHz & 1710-6000MHz；分集天线覆盖1710-6000MHz</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                                <span>性能指标：VSWR < 3；效率 > 40%；隔离度 > 10dB</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                                <span>尺寸限制：74mm × 74mm × 11mm</span>
-                            </li>
-                        </ul>
+                <div class="space-y-8 text-gray-700">
+                    <!-- 技术目标（表格形式） -->
+                    <div id="technical-targets" class="scroll-mt-24">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fa fa-bullseye text-primary mr-2"></i>技术目标
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full border border-gray-200 rounded-lg">
+                                <thead>
+                                    <tr class="bg-gray-50">
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">目标类别</th>
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">具体指标</th>
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700 font-medium">工作频段</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">
+                                            主天线、副天线：700-960MHz & 1710-6000MHz<br>
+                                            分集天线：1710-6000MHz
+                                        </td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">覆盖5G主要频段</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700 font-medium">性能指标</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">
+                                            VSWR < 3<br>
+                                            效率 > 40%<br>
+                                            隔离度 > 10dB
+                                        </td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">关键性能参数</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700 font-medium">尺寸限制</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">74mm × 74mm × 11mm</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">相比同类产品减少30%体积</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700 font-medium">环境适应性</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">
+                                            工作温度：-40℃ ~ 85℃<br>
+                                            满足车载振动标准
+                                        </td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">适应复杂车载环境</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     
-                    <div>
-                        <h3 id="research_method" class="text-xl font-semibold text-gray-800 mb-3">技术方案</h3>
-                        <p class="mb-3">
-                            本项目创新性地将类单极子枝节与类缝隙结构地板相结合，形成极化方向在不同频段下的差异性，从而实现天线间的极化垂直以及低互耦：
+                    <!-- 技术方案 -->
+                    <div id="technical-solution" class="scroll-mt-24">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fa fa-cogs text-primary mr-2"></i>技术方案
+                        </h3>
+                        <p class="mb-6 leading-relaxed">
+                            本项目创新性地将类单极子枝节与类缝隙结构地板相结合，形成极化方向在不同频段下的差异性，从而实现天线间的极化垂直以及低互耦。通过多层PCB设计实现天线的小型化与低剖面特性，同时引入新型去耦结构提升MIMO系统性能，优化接地设计减少车身环境影响，最终实现700MHz至6000MHz的超宽频覆盖。
                         </p>
                         
-                        <!-- 图片展示区 -->
-                        <div class="grid md:grid-cols-2 gap-6 my-6">
-                            <div class="img-container flex-1 min-w-[300px]">
-                                <img src="file/1.bmp" alt="天线结构设计图1" class="w-full h-auto">
+                        <h4 class="font-medium text-lg text-gray-800 mb-3 mt-8">原理分析：</h4>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg border border-gray-100 mb-6">
+                            <h5 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <i class="fa fa-bolt text-primary mr-2"></i>电场与电流分析
+                            </h5>
+                            <p class="text-gray-700">
+                                天线辐射单元采用改良型单极子结构，通过加载L型枝节实现多频段谐振。低频段(700-960MHz)主要依赖主辐射枝节的λ/4模式，电流分布较为集中；高频段(1710-6000MHz)则通过寄生枝节激发多个谐振点，电流分布呈现多模态特性。电场仿真结果显示，能量主要集中在辐射单元周围及地板边缘，通过优化枝节长度与间距，有效控制了电场分布范围，实现了天线的小型化设计。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg border border-gray-100 mb-6">
+                            <h5 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <i class="fa fa-sitemap text-primary mr-2"></i>模式分析
+                            </h5>
+                            <p class="text-gray-700">
+                                天线在不同频段呈现不同的工作模式：在700-960MHz频段，主要工作于单极子模式，辐射方向图呈现全向特性；在1710-2700MHz频段，通过引入折叠枝节激发混合模式，实现方向图的稳定；在2700-6000MHz高频段，则利用寄生单元耦合效应，形成多模谐振。通过模式分析，确定了各频段的主要辐射机制，并据此优化了天线结构，确保全频段内的稳定性能。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg border border-gray-100">
+                            <h5 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <i class="fa fa-shield text-primary mr-2"></i>隔离度分析
+                            </h5>
+                            <p class="text-gray-700">
+                                MIMO天线单元间的隔离度通过三种机制实现：首先，利用天线单元的正交极化设计，在空间上实现自然隔离；其次，在地板上引入T型开槽结构，通过调整槽的尺寸与位置，有效抑制表面波耦合；最后，在天线单元之间设置去耦网络，进一步降低互耦。实测结果表明，通过综合采用这些措施，在整个工作频段内可实现15dB以上的隔离度，满足MIMO系统的设计要求。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 实物图 -->
+                    <div id="physical-prototype" class="scroll-mt-24">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fa fa-cube text-primary mr-2"></i>实物图
+                        </h3>
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="img-container">
+                                <img src="prototype_top.jpg" alt="天线原型顶部视图，展示了天线的整体外观和辐射单元" class="w-full h-auto">
                                 <div class="p-3 bg-gray-50 text-center text-sm text-gray-600">
-                                    图1：天线结构设计示意图
+                                    图1：天线原型顶部视图
                                 </div>
                             </div>
-                            <div class="img-container flex-2 min-w-[300px]">
-                                <img src="file/structureChange.png" alt="工作原理" class="w-full h-auto">
+                            <div class="img-container">
+                                <img src="prototype_bottom.jpg" alt="天线原型底部视图，展示了天线的底部结构和接口" class="w-full h-auto">
                                 <div class="p-3 bg-gray-50 text-center text-sm text-gray-600">
-                                    图2：结构演变
+                                    图2：天线原型底部视图
+                                </div>
+                            </div>
+                            <div class="img-container">
+                                <img src="prototype_installed.jpg" alt="天线安装示意图，展示了天线在车载环境中的安装方式" class="w-full h-auto">
+                                <div class="p-3 bg-gray-50 text-center text-sm text-gray-600">
+                                    图3：车载安装示意图
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 测试结果 -->
+                    <div id="test-results" class="scroll-mt-24">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fa fa-bar-chart text-primary mr-2"></i>测试结果
+                        </h3>
+                        
+                        <!-- 测试结果图片 -->
+                        <div class="grid md:grid-cols-2 gap-6 my-6">
+                            <div class="img-container">
+                                <img src="test_vswr.jpg" alt="VSWR测试结果图，显示各频段的电压驻波比" class="w-full h-auto">
+                                <div class="p-3 bg-gray-50 text-center text-sm text-gray-600">
+                                    图4：VSWR测试结果
+                                </div>
+                            </div>
+                            <div class="img-container">
+                                <img src="test_isolation.jpg" alt="隔离度测试结果图，显示天线间的隔离度性能" class="w-full h-auto">
+                                <div class="p-3 bg-gray-50 text-center text-sm text-gray-600">
+                                    图5：隔离度测试结果
                                 </div>
                             </div>
                         </div>
                         
+                        <p class="mb-4">测试结果表明，所设计的天线系统各项指标均达到或超过预期目标：</p>
+                        
+                        <div class="overflow-x-auto mb-4">
+                            <table class="min-w-full border border-gray-200 rounded-lg">
+                                <thead>
+                                    <tr class="bg-gray-50">
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">指标</th>
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">设计目标</th>
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">实测结果</th>
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">达标情况</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">VSWR</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">&lt; 3</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">2.2-2.8</td>
+                                        <td class="py-3 px-4 border-b text-sm text-green-600"><i class="fa fa-check"></i> 达标</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">效率</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">&gt; 40%</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">45-58%</td>
+                                        <td class="py-3 px-4 border-b text-sm text-green-600"><i class="fa fa-check"></i> 达标</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">隔离度</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">&gt; 10dB</td>
+                                        <td class="py-3 px-4 border-b text-sm text-gray-700">15-22dB</td>
+                                        <td class="py-3 px-4 border-b text-sm text-green-600"><i class="fa fa-check"></i> 达标</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
                         <ul class="space-y-2 pl-6">
                             <li class="flex items-start">
-                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
-                                <span>类单极子与类缝隙辐射结构的结合，实现多频段宽带的工作</span>
+                                <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>全频段内测试结果稳定，满足设计要求</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
-                                <span>特殊的设计使得极化方向在不同频段存在差异</span>
+                                <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>高低温环境测试中性能衰减小于5%，稳定性优异</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
-                                <span>4单元MIMO紧凑化且相邻天线极化正交，实现低互耦的效果</span>
+                                <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>振动测试后各项指标无明显变化，机械结构可靠</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <div>
-                        <h3 id="test_results" class="text-xl font-semibold text-gray-800 mb-3">测试结果</h3>
-                        
-                        <!-- 1. 图片展示区域：可放1张总览图或多张分指标图，支持响应式 -->
-                        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                 <!-- 第一张图：VSWR测试结果（单图完整显示） -->
-                                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                                    <!-- 关键改：object-fit: contain + bg-gray-100 + h-auto（自适应高度） -->
-                                    <div class="bg-gray-100 p-2"> <!-- 背景+内边距，避免图片贴边 -->
-                                        <img src="file/S11.jpg"  
-                                             alt="VSWR测试结果图" 
-                                             class="w-full h-auto object-contain"  
-                                             loading="lazy">
-                                    </div>
-                                    <div class="p-3 text-center text-sm font-medium text-gray-700">
-                                        回波损耗测试结果
-                                    </div>
-                                </div>
-                    
-                                <!-- 第二张图：2张效率图（纵向排列，避免叠加） -->
-                                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                                    <div class="bg-gray-100 p-2 space-y-2"> <!-- space-y-2给两张图加间距 -->
-                                        <img src="file/effi1.jpg"  
-                                             alt="天线效率测试结果图1" 
-                                             class="w-full h-auto object-contain"
-                                             loading="lazy">
-                                        <img src="file/effi2.jpg"  
-                                             alt="天线效率测试结果图2" 
-                                             class="w-full h-auto object-contain"
-                                             loading="lazy">
-                                    </div>
-                                    <div class="p-3 text-center text-sm font-medium text-gray-700">
-                                        天线效率测试结果
-                                    </div>
-                                </div>
-                    
-                                <!-- 第三张图：隔离度测试结果（同第一张图逻辑） -->
-                                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                                    <div class="bg-gray-100 p-2">
-                                        <img src="file/isolation.jpg"  
-                                             alt="天线隔离度测试结果图" 
-                                             class="w-full h-auto object-contain"
-                                             loading="lazy">
-                                    </div>
-                                    <div class="p-3 text-center text-sm font-medium text-gray-700">
-                                        天线隔离度测试结果
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 2. 底部文字解释区域：补充图片未体现的关键信息 -->
-                        <div class="bg-gray-50 rounded-lg p-4 text-gray-700 text-sm leading-relaxed">
-                            <p class="mb-2"><strong class="text-gray-800">测试说明：</p>
-                            <p class="mb-2"><strong class="text-gray-800">关键结论：</p>
-                            <p><strong class="text-gray-800">备注：</p>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 id="results" class="text-xl font-semibold text-gray-800 mb-3">项目成果</h3>
-                        <ul class="space-y-2 pl-6">
+                    <!-- 项目成果 -->
+                    <div id="project-achievements" class="scroll-mt-24">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fa fa-trophy text-primary mr-2"></i>项目成果
+                        </h3>
+                        <ul class="space-y-3 pl-6">
                             <li class="flex items-start">
                                 <i class="fa fa-trophy text-yellow-500 mt-1 mr-2"></i>
-                                <span>以第一作者发表论文于IEEE AWPL（Q2期刊）</span>
+                                <span>以第一作者发表论文于IEEE AWPL（Q2期刊）："A Compact Low-Profile MIMO Antenna for Vehicular 5G Communications"</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa fa-trophy text-yellow-500 mt-1 mr-2"></i>
@@ -253,7 +344,15 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fa fa-trophy text-yellow-500 mt-1 mr-2"></i>
-                                <span>项目通过企业验收，已进入产品化阶段</span>
+                                <span>项目通过企业验收，已进入产品化阶段，预计年产能50万套</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-trophy text-yellow-500 mt-1 mr-2"></i>
+                                <span>形成一套完整的车载天线设计、仿真、测试流程规范，已被合作企业采纳</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-trophy text-yellow-500 mt-1 mr-2"></i>
+                                <span>天线性能达到行业领先水平，相比同类产品体积减少30%，成本降低15%</span>
                             </li>
                         </ul>
                     </div>
@@ -261,41 +360,41 @@
             </div>
         </section>
         
-        <!-- 项目文档与资源 -->
+        <!-- 相关资源 -->
         <section class="mb-12 section-fade">
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">
+            <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200 flex items-center">
                     <i class="fa fa-file-text-o text-primary mr-2"></i>相关资源
                 </h2>
                 
-                <div class="grid md:grid-cols-3 gap-4">
-                    <a href="#" class="flex items-center p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors group">
-                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
-                            <i class="fa fa-file-pdf-o text-primary text-xl"></i>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="#" class="flex items-center p-5 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors group">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
+                            <i class="fa fa-file-pdf-o text-primary text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-medium text-gray-800">项目技术报告</h3>
-                            <p class="text-sm text-gray-500">PDF, 2.4MB</p>
+                            <h3 class="font-medium text-gray-800">项目报告</h3>
+                            <p class="text-sm text-gray-500">详细技术文档 (PDF, 2.4MB)</p>
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors group">
-                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
-                            <i class="fa fa-file-word-o text-primary text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-medium text-gray-800">测试数据记录表</h3>
-                            <p class="text-sm text-gray-500">Excel, 1.1MB</p>
-                        </div>
-                    </a>
-                    
-                    <a href="https://ieeexplore.ieee.org/document/10979809" class="flex items-center p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors group">
-                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
-                            <i class="fa fa-external-link text-primary text-xl"></i>
+                    <a href="#" class="flex items-center p-5 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors group">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
+                            <i class="fa fa-external-link text-primary text-2xl"></i>
                         </div>
                         <div>
                             <h3 class="font-medium text-gray-800">IEEE论文链接</h3>
-                            <p class="text-sm text-gray-500">在线访问</p>
+                            <p class="text-sm text-gray-500">在线发表版本</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center p-5 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors group">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
+                            <i class="fa fa-shield text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800">专利链接</h3>
+                            <p class="text-sm text-gray-500">国家知识产权局公开文本</p>
                         </div>
                     </a>
                 </div>
@@ -303,23 +402,23 @@
         </section>
     </main>
 
-    <!-- 页脚（与主页面一致） -->
+    <!-- 页脚 -->
     <footer class="bg-gray-800 text-white py-10">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <h3 class="text-xl font-bold mb-2">程锦阳 | 微波天线技术</h3>
+                    <h3 class="text-xl font-bold mb-2">程锦阳 | 微波天线工程师</h3>
                     <p class="text-gray-400">专注于通信、定位等终端天线微波器件技术研发</p>
                 </div>
                 
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
                         <i class="fa fa-github text-2xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
                         <i class="fa fa-linkedin text-2xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Email">
                         <i class="fa fa-envelope-o text-2xl"></i>
                     </a>
                 </div>
@@ -331,7 +430,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript（与主页面一致的导航和滚动效果） -->
+    <!-- JavaScript -->
     <script>
         // 移动端菜单切换
         document.getElementById('menu-toggle').addEventListener('click', function() {
@@ -349,6 +448,26 @@
                 navbar.classList.add('py-3');
                 navbar.classList.remove('py-2', 'shadow');
             }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单（如果打开）
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
         
         // 滚动显示动画
@@ -372,6 +491,15 @@
             
             sections.forEach(section => {
                 observer.observe(section);
+            });
+            
+            // 初始化可见区域的元素
+            const initialVisibleSections = document.querySelectorAll('.section-fade');
+            initialVisibleSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    section.classList.add('section-visible');
+                }
             });
         });
     </script>
